@@ -1,0 +1,36 @@
+Given a string S. The task is to print all permutations of a given string.
+
+ 
+
+Example 1:
+
+Input: ABC
+Output:
+ABC ACB BAC BCA CAB CBA
+Explanation:
+Given string ABC has permutations in 6 
+forms as ABC, ACB, BAC, BCA, CAB and CBA 
+
+solution:
+void solve(vector<string> &ans,int index,string &s)
+	    {
+	        if(s.size()==index)
+	        {
+	            ans.push_back(s);
+	            return;
+	        }
+	        for(int i=index;i<s.size();i++)
+	        {
+	            swap(s[i],s[index]);
+	            solve(ans,index+1,s);
+	            swap(s[i],s[index]);
+	        }
+	        return;
+	    }
+		vector<string>find_permutation(string S)
+		{
+		    /*vector<string> ans;
+		    solve(ans,0,S);
+		    sort(ans.begin(),ans.end());
+		    return ans;
+        }
