@@ -1,0 +1,46 @@
+Given an array arr[] of positive integers of size N. Reverse every sub-array group of size K.
+
+ 
+
+Example 1:
+
+Input:
+N = 5, K = 3
+arr[] = {1,2,3,4,5}
+Output: 3 2 1 5 4
+Explanation: First group consists of elements
+1, 2, 3. Second group consists of 4,5.
+
+solution:
+
+void reverseInGroups(vector<long long>& arr, int n, int k){
+       stack<int> s;
+       int curr=0;
+       for(int i=0;i<n;i++)
+       {
+           
+           if(s.size()<k)
+           {
+               s.push(arr[i]);
+           } 
+           else{
+               
+               while(!s.empty())
+               {
+                   arr[curr]=s.top();
+                   curr++;
+                   s.pop();
+               }
+               s.push(arr[i]);
+           }
+           
+       }
+       
+           
+          while(!s.empty())
+               {
+                   arr[curr]=s.top();
+                   curr++;
+                   s.pop();
+               }
+               }
